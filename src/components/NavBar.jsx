@@ -37,14 +37,14 @@ const Navbar = () => {
           ) : (
             <>
               <Link
-                to="/my-blogs"
+                to="/myblogs"
                 className="text-slate-300 hover:text-purple-400"
               >
                 My Blogs
               </Link>
 
               <Link
-                to="/create"
+                to="/createblog"
                 className="text-slate-300 hover:text-purple-400"
               >
                 Create Blog
