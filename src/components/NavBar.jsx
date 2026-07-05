@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+const token = localStorage.getItem("token");
 const Navbar = () => {
   return (
     <nav className="bg-slate-950 border-b border-slate-800">
@@ -15,36 +15,52 @@ const Navbar = () => {
           >
             Home
           </Link>
-
-          <Link
-            to="/myblogs"
-            className="text-slate-300 hover:text-purple-400 transition"
-          >
-            My Blogs
-          </Link>
-
-          <Link
-            to="/createblog"
-            className="text-slate-300 hover:text-purple-400 transition"
-          >
-            Create Blog
-          </Link>
         </div>
 
-        <div className="flex gap-4">
-          <Link
-            to="/login"
-            className="text-slate-300 hover:text-purple-400 transition"
-          >
-            Login
-          </Link>
+        <div className="flex items-center gap-4">
+          {!token ? (
+            <>
+              <Link
+                to="/login"
+                className="text-slate-300 hover:text-purple-400"
+              >
+                Login
+              </Link>
 
-          <Link
-            to="/register"
-            className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition"
-          >
-            Register
-          </Link>
+              <Link
+                to="/register"
+                className="bg-purple-600 px-4 py-2 rounded-lg"
+              >
+                Register
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/my-blogs"
+                className="text-slate-300 hover:text-purple-400"
+              >
+                My Blogs
+              </Link>
+
+              <Link
+                to="/create"
+                className="text-slate-300 hover:text-purple-400"
+              >
+                Create Blog
+              </Link>
+
+              <button
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  window.location.href = "/";
+                }}
+                className="bg-red-600 px-4 py-2 rounded-lg"
+              >
+                Logout
+              </button>
+            </>
+          )}
         </div>
       </div>
     </nav>
