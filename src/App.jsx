@@ -8,19 +8,28 @@ import CreateBlog from "./pages/CreateBlog";
 import EditBlog from "./pages/EditBlog";
 import MyBlogs from "./pages/MyBlogs";
 import NotFound from "./pages/NotFound";
+import Navbar from "./components/NavBar";
+import Footer from "./components/Footer";
+
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/blogdetails" element={<BlogDetails />} />
-        <Route path="/createblog" element={<CreateBlog />} />
-        <Route path="/editblog" element={<EditBlog />} />
-        <Route path="/myblogs" element={<MyBlogs />} />
-        <Route path="/notfound" element={<NotFound />} />
-      </Routes>
+      <div className="min-h-screen bg-slate-950 text-white flex flex-col">
+        <Navbar />
+        <main className="flex-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/blogdetails" element={<BlogDetails />} />
+            <Route path="/createblog" element={<CreateBlog />} />
+            <Route path="/editblog" element={<EditBlog />} />
+            <Route path="/myblogs" element={<MyBlogs />} />
+            <Route path="/notfound" element={<NotFound />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }
