@@ -10,6 +10,7 @@ import MyBlogs from "./pages/MyBlogs";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/NavBar";
 import Footer from "./components/Footer";
+import ProtectedRoute from "./pages/ProtectedRoute";
 
 function App() {
   return (
@@ -22,9 +23,30 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/blogs/:id" element={<BlogDetails />} />
-            <Route path="/createblog" element={<CreateBlog />} />
-            <Route path="/edit/:id" element={<EditBlog />} />
-            <Route path="/myblogs" element={<MyBlogs />} />
+            <Route
+              path="/createblog"
+              element={
+                <ProtectedRoute>
+                  <CreateBlog />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/edit/:id"
+              element={
+                <ProtectedRoute>
+                  <EditBlog />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/myblogs"
+              element={
+                <ProtectedRoute>
+                  <MyBlogs />
+                </ProtectedRoute>
+              }
+            />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
