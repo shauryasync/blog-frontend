@@ -11,13 +11,10 @@ const MyBlogs = () => {
     const fetchBlogs = async () => {
       try {
         const response = await api.get("/blogs");
-        console.log("user: ", user);
-        console.log("blogs: ", response.data);
 
         const myBlogs = response.data.filter(
           (blog) => blog.author?._id === user._id,
         );
-        console.log("my blogs: ", myBlogs);
 
         setBlogs(myBlogs);
       } catch (error) {

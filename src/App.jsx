@@ -23,9 +23,9 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/blogs/:id" element={<BlogDetails />} />
             <Route path="/createblog" element={<CreateBlog />} />
-            <Route path="/editblog" element={<EditBlog />} />
+            <Route path="/edit/:id" element={<EditBlog />} />
             <Route path="/myblogs" element={<MyBlogs />} />
-            <Route path="/notfound" element={<NotFound />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />

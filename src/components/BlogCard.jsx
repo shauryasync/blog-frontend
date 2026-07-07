@@ -20,6 +20,12 @@ const BlogCard = ({ blog }) => {
         >
           Read More →
         </Link>
+        <Link
+          to={`/edit/${blog._id}`}
+          className="text-yellow-400 hover:text-yellow-300"
+        >
+          Edit
+        </Link>
       </div>
     </div>
   );
